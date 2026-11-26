@@ -138,3 +138,9 @@ msgstr "Esta acción no está disponible para %s en su estado actual."
 #: code:addons/beflow_fleet_rental_fixes/models/car_rental_billing.py:0
 msgid "Recurring invoices were not created: %s"
 msgstr "No se crearon las facturas recurrentes: %s"
+
+#. module: beflow_fleet_rental_fixes
+#: model:ir.actions.act_url,name:beflow_fleet_rental_fixes.action_source_code
+#: model:ir.ui.menu,name:beflow_fleet_rental_fixes.menu_source_code
+msgid "Source Code"
+msgstr "Código fuente"

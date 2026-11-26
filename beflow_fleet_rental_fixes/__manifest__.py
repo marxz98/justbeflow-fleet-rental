@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     "name": "justbeflow — Fleet Rental fixes",
-    "version": "19.0.1.4.0",
+    "version": "19.0.1.5.0",
     "category": "Human Resources/Fleet",
     "summary": "Arreglos por herencia sobre fleet_rental (Cybrosys) para Odoo 19",
     "description": """Correcciones a fleet_rental sin tocar su código.
@@ -43,6 +43,9 @@ cancelación, también de facturas que no son de renta, así que un usuario de
 facturación sin el grupo de rentas no podía cancelar ni anular ninguna factura.
 Facturación puede leer los contratos, sin editarlos; cancelar una factura de
 renta sigue exigiendo el grupo de rentas, porque cambia el contrato.
+
+Código fuente. fleet_rental y los módulos beflow_fleet_rental_* son AGPL-3: el
+menú de rentas enlaza al repositorio público con el código que corre (§13).
 """,
     "author": "justbeflow.com",
     "website": "https://justbeflow.com",
@@ -51,6 +54,7 @@ renta sigue exigiendo el grupo de rentas, porque cambia el contrato.
     "data": [
         "security/fleet_rental_acl_overrides.xml",
         "security/ir.model.access.csv",
+        "views/source_code_menu.xml",
     ],
     "installable": True,
     "auto_install": False,

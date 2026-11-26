@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- AGPL-3 §13: enlace al código que corre, publicado con scripts/publish-agpl.sh. -->
+    <record id="action_source_code" model="ir.actions.act_url">
+        <field name="name">Source Code</field>
+        <field name="url">https://github.com/marxz98/justbeflow-fleet-rental</field>
+        <field name="target">new</field>
+    </record>
+    <menuitem id="menu_source_code" parent="fleet_rental.menu_car_parent" name="Source Code"
+              action="action_source_code" sequence="99"/>
+</odoo>
