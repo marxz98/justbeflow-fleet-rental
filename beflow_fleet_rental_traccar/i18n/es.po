@@ -1,0 +1,23 @@
+# Traducción al español de beflow_fleet_rental_traccar.
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: beflow_fleet_rental_traccar
+#: model:ir.model.fields,field_description:beflow_fleet_rental_traccar.field_traccar_device__engine_hours
+msgid "Engine hours"
+msgstr "Horas de motor"
+
+#. module: beflow_fleet_rental_traccar
+#. odoo-python
+#: code:addons/beflow_fleet_rental_traccar/models/car_rental_contract.py:0
+msgid "Engine hours %(hours)s taken from GPS (position of %(when)s)."
+msgstr "Horas de motor %(hours)s tomadas del GPS (posición del %(when)s)."

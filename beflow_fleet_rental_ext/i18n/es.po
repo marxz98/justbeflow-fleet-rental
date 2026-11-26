@@ -1,0 +1,192 @@
+# Traducción al español de beflow_fleet_rental_ext.
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: beflow_fleet_rental_ext
+#. odoo-python
+#: code:addons/beflow_fleet_rental_ext/models/rental_contract_line.py:0
+msgid "%(item)s for %(period)s"
+msgstr "%(item)s para %(period)s"
+
+#. module: beflow_fleet_rental_ext
+#: model:ir.model.fields,help:beflow_fleet_rental_ext.field_car_rental_contract__first_payment
+msgid "Charged once, on its own line of the first invoice, besides the rent. Leave 0 for none."
+msgstr "Se cobra una sola vez, en su propia línea de la factura inicial, además de la renta. Déjelo en 0 si no hay cargo."
+
+#. module: beflow_fleet_rental_ext
+#: model:ir.model.fields,field_description:beflow_fleet_rental_ext.field_beflow_rental_contract_line__contract_id
+msgid "Contract"
+msgstr "Contrato"
+
+#. module: beflow_fleet_rental_ext
+#: model:ir.model.fields,field_description:beflow_fleet_rental_ext.field_car_rental_contract__first_payment
+msgid "Contract fee"
+msgstr "Cargo de contrato"
+
+#. module: beflow_fleet_rental_ext
+#. odoo-python
+#: code:addons/beflow_fleet_rental_ext/models/car_rental_contract.py:0
+msgid "Contract fee: %s"
+msgstr "Cargo de contrato: %s"
+
+#. module: beflow_fleet_rental_ext
+#: model:ir.model.fields,field_description:beflow_fleet_rental_ext.field_beflow_rental_contract_line__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: beflow_fleet_rental_ext
+#: model:ir.model.fields,field_description:beflow_fleet_rental_ext.field_beflow_rental_contract_line__create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: beflow_fleet_rental_ext
+#: model:ir.model.fields,field_description:beflow_fleet_rental_ext.field_beflow_rental_contract_line__display_name
+msgid "Display Name"
+msgstr "Nombre mostrado"
+
+#. module: beflow_fleet_rental_ext
+#: model:ir.model.fields,field_description:beflow_fleet_rental_ext.field_car_rental_contract__contract_line_ids
+#: model_terms:ir.ui.view,arch_db:beflow_fleet_rental_ext.car_rental_contract_view_form
+msgid "Equipment"
+msgstr "Equipo"
+
+#. module: beflow_fleet_rental_ext
+#: model:ir.model.fields,field_description:beflow_fleet_rental_ext.field_beflow_rental_contract_line__product_id
+msgid "Equipment or service"
+msgstr "Equipo o servicio"
+
+#. module: beflow_fleet_rental_ext
+#: model:ir.model.fields,field_description:beflow_fleet_rental_ext.field_beflow_rental_contract_line__id
+msgid "ID"
+msgstr "ID"
+
+#. module: beflow_fleet_rental_ext
+#: model:ir.model.fields,field_description:beflow_fleet_rental_ext.field_beflow_rental_contract_line__write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: beflow_fleet_rental_ext
+#: model:ir.model.fields,field_description:beflow_fleet_rental_ext.field_beflow_rental_contract_line__write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: beflow_fleet_rental_ext
+#: model:ir.model.fields,field_description:beflow_fleet_rental_ext.field_car_rental_contract__operator_id
+msgid "Operator"
+msgstr "Operador"
+
+#. module: beflow_fleet_rental_ext
+#: model:ir.model.fields,help:beflow_fleet_rental_ext.field_car_rental_contract__cost
+msgid "Price per rented day, or per engine hour."
+msgstr "Precio por día de renta o por hora de motor."
+
+#. module: beflow_fleet_rental_ext
+#: model:ir.model.fields,field_description:beflow_fleet_rental_ext.field_beflow_rental_contract_line__price_unit
+#: model:ir.model.fields,field_description:beflow_fleet_rental_ext.field_car_rental_contract__cost
+msgid "Rate"
+msgstr "Tarifa"
+
+#. module: beflow_fleet_rental_ext
+#: model:ir.model,name:beflow_fleet_rental_ext.model_beflow_rental_contract_line
+msgid "Rental equipment line"
+msgstr "Línea de equipo de renta"
+
+#. module: beflow_fleet_rental_ext
+#. odoo-python
+#: code:addons/beflow_fleet_rental_ext/models/car_rental_contract.py:0
+msgid "Set the rate of contract %s before confirming it."
+msgstr "Indique la tarifa del contrato %s antes de confirmarlo."
+
+#. module: beflow_fleet_rental_ext
+#. odoo-python
+#: code:addons/beflow_fleet_rental_ext/models/car_rental_contract.py:0
+msgid "%s, engine hours"
+msgstr "%s, horas de motor"
+
+#. module: beflow_fleet_rental_ext
+#. odoo-python
+#: code:addons/beflow_fleet_rental_ext/models/car_rental_contract.py:0
+msgid "A contract billed by engine hours cannot have recurring invoices."
+msgstr "Un contrato por horas de motor no puede tener facturas recurrentes."
+
+#. module: beflow_fleet_rental_ext
+#: model:ir.model.fields,field_description:beflow_fleet_rental_ext.field_car_rental_contract__rent_by_hour
+msgid "By engine hours"
+msgstr "Por horas de motor"
+
+#. module: beflow_fleet_rental_ext
+#: model:ir.model.fields,help:beflow_fleet_rental_ext.field_car_rental_contract__rent_by_hour
+msgid "Rent and equipment are billed at check-in, by final minus initial engine hours."
+msgstr "La renta y el equipo se facturan al cerrar, por horas de motor finales menos iniciales."
+
+#. module: beflow_fleet_rental_ext
+#. odoo-python
+#: code:addons/beflow_fleet_rental_ext/models/car_rental_contract.py:0
+msgid "Engine hours cannot be negative, and the final reading cannot be lower than the initial one."
+msgstr "Las horas de motor no pueden ser negativas y la lectura final no puede ser menor que la inicial."
+
+#. module: beflow_fleet_rental_ext
+#. odoo-python
+#: code:addons/beflow_fleet_rental_ext/models/car_rental_contract.py:0
+msgid "Enter the initial and final engine hours of %s before checking in."
+msgstr "Indique las horas de motor iniciales y finales de %s antes de cerrar."
+
+#. module: beflow_fleet_rental_ext
+#: model:ir.model.fields,field_description:beflow_fleet_rental_ext.field_car_rental_contract__engine_hours_end
+msgid "Final engine hours"
+msgstr "Horas de motor finales"
+
+#. module: beflow_fleet_rental_ext
+#: model:ir.model.fields,field_description:beflow_fleet_rental_ext.field_car_rental_contract__engine_hours_start
+msgid "Initial engine hours"
+msgstr "Horas de motor iniciales"
+
+#. module: beflow_fleet_rental_ext
+#: model:ir.actions.act_window,name:beflow_fleet_rental_ext.action_rental_availability
+#: model:ir.ui.menu,name:beflow_fleet_rental_ext.menu_rental_availability
+#: model_terms:ir.ui.view,arch_db:beflow_fleet_rental_ext.car_rental_contract_view_calendar
+msgid "Availability"
+msgstr "Disponibilidad"
+
+#. module: beflow_fleet_rental_ext
+#. odoo-python
+#: code:addons/beflow_fleet_rental_ext/models/car_rental_contract.py:0
+msgid "Rate, contract fee and damage cost cannot be negative."
+msgstr "La tarifa, el cargo de contrato y el costo de daños no pueden ser negativos."
+
+#. module: beflow_fleet_rental_ext
+#. odoo-python
+#: code:addons/beflow_fleet_rental_ext/models/car_rental_contract.py:0
+msgid "These terms of %(contract)s can no longer be changed: %(fields)s."
+msgstr "Estos datos de %(contract)s ya no se pueden cambiar: %(fields)s."
+
+#. module: beflow_fleet_rental_ext
+#. odoo-python
+#: code:addons/beflow_fleet_rental_ext/models/rental_contract_line.py:0
+msgid "The rate of an equipment line cannot be negative."
+msgstr "La tarifa de una línea de equipo no puede ser negativa."
+
+#. module: beflow_fleet_rental_ext
+#. odoo-python
+#: code:addons/beflow_fleet_rental_ext/models/rental_contract_line.py:0
+msgid "Equipment can only be changed before the rental starts (%s)."
+msgstr "El equipo solo se puede cambiar antes de que empiece la renta (%s)."
+
+#. module: beflow_fleet_rental_ext
+#: model:ir.model.fields,field_description:beflow_fleet_rental_ext.field_account_move_line__rental_date_from
+msgid "Rented from"
+msgstr "Rentado desde"
+
+#. module: beflow_fleet_rental_ext
+#: model:ir.model.fields,field_description:beflow_fleet_rental_ext.field_account_move_line__rental_date_to
+msgid "Rented to"
+msgstr "Rentado hasta"

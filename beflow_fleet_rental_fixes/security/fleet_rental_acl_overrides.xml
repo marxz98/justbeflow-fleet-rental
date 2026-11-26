@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- fleet_rental da escritura y creación sobre ir.cron a sus grupos: un
+         usuario de alquiler podía crear crons y lanzarlos con "Ejecutar ahora".
+         Ningún código de fleet_rental lo necesita (su cron corre como OdooBot).
+         Se desactivan en vez de borrarse: el CSV de fleet_rental no escribe
+         `active`, así que un -u fleet_rental no las reactiva. -->
+    <record id="fleet_rental.fleet_cron_right_user" model="ir.model.access">
+        <field name="active" eval="False"/>
+    </record>
+    <record id="fleet_rental.fleet_cron_right_manager" model="ir.model.access">
+        <field name="active" eval="False"/>
+    </record>
+</odoo>

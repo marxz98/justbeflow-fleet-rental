@@ -1,0 +1,10 @@
+repo:     https://github.com/CybroOdoo/CybroAddons (carpeta fleet_rental, rama 19.0)
+commit:   4aef8462705597b2ce1db39ec86f46eb1608c6d6
+licencia: AGPL-3 (declarada en __manifest__.py)
+cambios locales sobre upstream:
+  - i18n/es.po: traducción al español propia (209 cadenas). Se regenera con
+    translations/fleet_rental/generar-es-po.py.
+  - static/description/assets/modules/ eliminado (41 MB de GIF que anuncian
+    otros módulos de Cybrosys en la página de la tienda de apps; ningún .py,
+    .xml ni .js los usa). En el servidor siguen existiendo y no molestan.
+No se edita nada más aquí: los arreglos van por herencia en beflow_fleet_rental_fixes.

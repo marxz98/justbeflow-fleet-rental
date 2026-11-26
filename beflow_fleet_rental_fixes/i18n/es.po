@@ -1,0 +1,140 @@
+# Traducción al español de beflow_fleet_rental_fixes.
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: beflow_fleet_rental_fixes
+#: model:ir.model.constraint,message:beflow_fleet_rental_fixes.constraint_fleet_vehicle_vin_sn_unique
+msgid "Chassis Number already exists!"
+msgstr "Ya existe otro vehículo con ese número de chasis (VIN)."
+
+#. module: beflow_fleet_rental_fixes
+#: model:ir.model.fields,field_description:beflow_fleet_rental_fixes.field_fleet_vehicle__display_name
+msgid "Display Name"
+msgstr "Nombre mostrado"
+
+#. module: beflow_fleet_rental_fixes
+#: model:ir.model.fields,field_description:beflow_fleet_rental_fixes.field_fleet_vehicle__id
+msgid "ID"
+msgstr "ID"
+
+#. module: beflow_fleet_rental_fixes
+#: model:ir.model.constraint,message:beflow_fleet_rental_fixes.constraint_fleet_vehicle_license_plate_unique
+msgid "License plate already exists!"
+msgstr "Ya existe otro vehículo con esa placa."
+
+#. module: beflow_fleet_rental_fixes
+#: model:ir.model,name:beflow_fleet_rental_fixes.model_fleet_vehicle
+msgid "Vehicle"
+msgstr "Vehículo"
+
+#. module: beflow_fleet_rental_fixes
+#: model:ir.model.fields,field_description:beflow_fleet_rental_fixes.field_rental_fleet_reserved__contract_id
+msgid "Contract"
+msgstr "Contrato"
+
+#. module: beflow_fleet_rental_fixes
+#. odoo-python
+#: code:addons/beflow_fleet_rental_fixes/models/car_rental_contract.py:0
+msgid "%(vehicle)s is already reserved from %(date_from)s to %(date_to)s."
+msgstr "%(vehicle)s ya está reservado del %(date_from)s al %(date_to)s."
+
+#. module: beflow_fleet_rental_fixes
+#. odoo-python
+#: code:addons/beflow_fleet_rental_fixes/models/car_rental_contract.py:0
+msgid "Choose an end date later than %s."
+msgstr "Elige una fecha de fin posterior al %s."
+
+#. module: beflow_fleet_rental_fixes
+#. odoo-python
+#: code:addons/beflow_fleet_rental_fixes/models/car_rental_contract.py:0
+msgid "The end date cannot be earlier than the start date."
+msgstr "La fecha de fin no puede ser anterior a la de inicio."
+
+#. module: beflow_fleet_rental_fixes
+#. odoo-python
+#: code:addons/beflow_fleet_rental_fixes/models/car_rental_contract.py:0
+msgid "The end time must be later than the start time."
+msgstr "La hora de fin debe ser posterior a la de inicio."
+
+#. module: beflow_fleet_rental_fixes
+#. odoo-python
+#: code:addons/beflow_fleet_rental_fixes/models/car_rental_contract.py:0
+msgid "Enter the start and end times as HH:MM, for example 08:30."
+msgstr "Escribe las horas de inicio y fin como HH:MM, por ejemplo 08:30."
+
+#. module: beflow_fleet_rental_fixes
+#: model:ir.model.fields,field_description:beflow_fleet_rental_fixes.field_car_rental_contract__actual_return_date
+msgid "Actual Return Date"
+msgstr "Fecha real de devolución"
+
+#. module: beflow_fleet_rental_fixes
+#: model:ir.model.fields,help:beflow_fleet_rental_fixes.field_car_rental_contract__actual_return_date
+msgid "Day the vehicle was checked in. The contracted end date is kept as agreed."
+msgstr "Día en que se recibió el vehículo. La fecha de fin contratada se conserva tal como se acordó."
+
+#. module: beflow_fleet_rental_fixes
+#. odoo-python
+#: code:addons/beflow_fleet_rental_fixes/models/car_rental_billing.py:0
+msgid "Contract %s needs a sales journal of its own company."
+msgstr "El contrato %s necesita un diario de ventas de su misma compañía."
+
+#. module: beflow_fleet_rental_fixes
+#. odoo-python
+#: code:addons/beflow_fleet_rental_fixes/models/car_rental_billing.py:0
+msgid "%(vehicle)s, from %(date_from)s to %(date_to)s"
+msgstr "%(vehicle)s, del %(date_from)s al %(date_to)s"
+
+#. module: beflow_fleet_rental_fixes
+#. odoo-python
+#: code:addons/beflow_fleet_rental_fixes/models/car_rental_billing.py:0
+msgid "Rental invoices"
+msgstr "Facturas de renta"
+
+#. module: beflow_fleet_rental_fixes
+#. odoo-python
+#: code:addons/beflow_fleet_rental_fixes/models/car_rental_billing.py:0
+msgid "Missing accessory: %s"
+msgstr "Accesorio faltante: %s"
+
+#. module: beflow_fleet_rental_fixes
+#. odoo-python
+#: code:addons/beflow_fleet_rental_fixes/models/car_rental_billing.py:0
+msgid "Damage: %s"
+msgstr "Daños: %s"
+
+#. module: beflow_fleet_rental_fixes
+#. odoo-python
+#: code:addons/beflow_fleet_rental_fixes/models/car_rental_contract.py:0
+msgid "Some invoices of these rentals are still pending payment."
+msgstr "Algunas facturas de estas rentas siguen pendientes de pago."
+
+#. module: beflow_fleet_rental_fixes
+#: model:ir.model.fields,field_description:beflow_fleet_rental_fixes.field_account_move__is_rental_damage_invoice
+msgid "Rental Damage Invoice"
+msgstr "Factura de daños de renta"
+
+#. module: beflow_fleet_rental_fixes
+#: model:ir.model.fields,help:beflow_fleet_rental_fixes.field_account_move__is_rental_damage_invoice
+msgid "Created when checking in a rented vehicle, for missing accessories and damage."
+msgstr "Se crea al recibir un vehículo rentado, por accesorios faltantes y daños."
+
+#. module: beflow_fleet_rental_fixes
+#. odoo-python
+#: code:addons/beflow_fleet_rental_fixes/models/car_rental_contract.py:0
+msgid "This action is not available for %s in its current state."
+msgstr "Esta acción no está disponible para %s en su estado actual."
+
+#. module: beflow_fleet_rental_fixes
+#. odoo-python
+#: code:addons/beflow_fleet_rental_fixes/models/car_rental_billing.py:0
+msgid "Recurring invoices were not created: %s"
+msgstr "No se crearon las facturas recurrentes: %s"

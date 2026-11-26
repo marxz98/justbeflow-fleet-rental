@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_beflow_rental_contract_line_user,beflow.rental.contract.line.user,model_beflow_rental_contract_line,fleet_rental.fleet_rental_group_user,1,1,1,1

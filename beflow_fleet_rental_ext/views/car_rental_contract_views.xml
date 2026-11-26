@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="car_rental_contract_view_form" model="ir.ui.view">
+        <field name="name">car.rental.contract.view.form.beflow.ext</field>
+        <field name="model">car.rental.contract</field>
+        <field name="inherit_id" ref="fleet_rental.car_rental_contract_view_form"/>
+        <field name="arch" type="xml">
+            <field name="cost" position="attributes">
+                <attribute name="invisible">False</attribute>
+                <attribute name="readonly">state not in ('draft', 'reserved', 'running') or first_invoice_created</attribute>
+            </field>
+            <xpath expr="//label[@for='first_payment']" position="before">
+                <xpath expr="//field[@name='cost']" position="move"/>
+            </xpath>
+            <xpath expr="//label[@for='cost_generated']" position="attributes">
+                <attribute name="for">cost_frequency</attribute>
+            </xpath>
+            <field name="cost_generated" position="attributes">
+                <attribute name="invisible">True</attribute>
+                <attribute name="required">False</attribute>
+            </field>
+            <field name="end_time" position="after">
+                <field name="engine_hours_start" invisible="not rent_by_hour"
+                       readonly="state in ('invoice', 'done', 'cancel')"/>
+                <field name="engine_hours_end" invisible="not rent_by_hour"
+                       readonly="state in ('invoice', 'done', 'cancel')"/>
+            </field>
+            <field name="vehicle_id" position="after">
+                <field name="operator_id" readonly="state in ('invoice', 'done', 'cancel')"/>
+            </field>
+            <xpath expr="//notebook/page[1]" position="before">
+                <page string="Equipment" name="equipment">
+                    <field name="contract_line_ids" readonly="state not in ('draft', 'reserved')">
+                        <list editable="bottom">
+                            <field name="product_id"/>
+                            <field name="price_unit"/>
+                        </list>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

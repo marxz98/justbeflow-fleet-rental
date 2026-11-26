@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="car_rental_contract_view_calendar" model="ir.ui.view">
+        <field name="name">car.rental.contract.view.calendar</field>
+        <field name="model">car.rental.contract</field>
+        <field name="arch" type="xml">
+            <calendar string="Availability" date_start="rent_start_date" date_stop="rent_end_date"
+                      color="vehicle_id" mode="month" create="0" event_open_popup="0">
+                <field name="vehicle_id" filters="1"/>
+                <field name="customer_id"/>
+                <field name="state"/>
+            </calendar>
+        </field>
+    </record>
+
+    <!-- La reserva existe justo en estos estados: el calendario muestra lo que ocupa cada vehículo. -->
+    <record id="action_rental_availability" model="ir.actions.act_window">
+        <field name="name">Availability</field>
+        <field name="res_model">car.rental.contract</field>
+        <field name="view_mode">calendar,list,form</field>
+        <field name="view_id" ref="car_rental_contract_view_calendar"/>
+        <field name="domain">[('state', 'in', ('reserved', 'running', 'checking'))]</field>
+    </record>
+
+    <menuitem id="menu_rental_availability" parent="fleet_rental.menu_car_parent"
+              name="Availability" action="action_rental_availability" sequence="2"/>
+</odoo>
