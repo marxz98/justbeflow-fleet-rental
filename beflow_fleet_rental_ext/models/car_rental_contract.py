@@ -2,6 +2,7 @@
 from datetime import timedelta
 
 from odoo import api, fields, models
+from odoo.addons.beflow_fleet_rental_fixes.models.account_move import rental_billing
 from odoo.addons.beflow_fleet_rental_fixes.models.car_rental_billing import ONE_DAY
 from odoo.exceptions import UserError, ValidationError
 
@@ -175,8 +176,9 @@ class CarRentalContract(models.Model):
         for contract in self.filtered(lambda contract: contract.cost_frequency == "no"):
             invoice = contract.first_payment_inv
             if invoice and invoice.state != "cancel":
-                invoice.invoice_line_ids[:1].write({
-                    "rental_date_from": contract.rent_start_date, "rental_date_to": contract.rent_end_date})
+                with rental_billing():
+                    invoice.invoice_line_ids[:1].write({
+                        "rental_date_from": contract.rent_start_date, "rental_date_to": contract.rent_end_date})
 
     def action_verify(self):
         unread = self.filtered(lambda contract: contract.rent_by_hour and (

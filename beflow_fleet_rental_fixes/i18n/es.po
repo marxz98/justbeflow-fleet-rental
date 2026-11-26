@@ -144,3 +144,9 @@ msgstr "No se crearon las facturas recurrentes: %s"
 #: model:ir.ui.menu,name:beflow_fleet_rental_fixes.menu_source_code
 msgid "Source Code"
 msgstr "Código fuente"
+
+#. module: beflow_fleet_rental_fixes
+#. odoo-python
+#: code:addons/beflow_fleet_rental_fixes/models/account_move.py:0
+msgid "Only rental billing can set these invoice fields: %s."
+msgstr "Solo la facturación de rentas puede poner estos campos de factura: %s."

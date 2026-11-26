@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     "name": "justbeflow — Fleet Rental extensions",
-    "version": "19.0.1.0.0",
+    "version": "19.0.1.1.0",
     "category": "Human Resources/Fleet",
     "summary": "Renta por días u horas de motor × tarifa, cargo de contrato, extensiones, equipo, operador y calendario",
     "description": """Funcionalidad de renta de flota que fleet_rental no trae.
@@ -47,6 +47,9 @@ cargo; al empezar la renta, el equipo. La tarifa es obligatoria al confirmar
 y ningún importe puede ser negativo.
 
 Editar el precio de una línea de factura ya no cambia el cargo del contrato.
+
+Las fechas de cobertura de las líneas (`rental_date_from/to`) solo las pone la
+facturación de rentas: a mano o por RPC dejarían días sin cobrar.
 """,
     "author": "justbeflow.com",
     "website": "https://justbeflow.com",

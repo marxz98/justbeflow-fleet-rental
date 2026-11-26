@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- 5.5 (H3): fleet_rental hacía implicar a su grupo de usuario la contabilidad completa
+         (asientos, conciliación). Quien alquila solo necesita facturar y cobrar. Se recarga
+         después de fleet_rental en cada -u, así que un -u fleet_rental no lo deshace. -->
+    <record id="fleet_rental.fleet_rental_group_user" model="res.groups">
+        <field name="implied_ids" eval="[(3, ref('account.group_account_user')), (4, ref('account.group_account_invoice'))]"/>
+    </record>
+</odoo>

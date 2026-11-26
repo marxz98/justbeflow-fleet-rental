@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     "name": "justbeflow — Fleet Rental fixes",
-    "version": "19.0.1.5.0",
+    "version": "19.0.1.6.0",
     "category": "Human Resources/Fleet",
     "summary": "Arreglos por herencia sobre fleet_rental (Cybrosys) para Odoo 19",
     "description": """Correcciones a fleet_rental sin tocar su código.
@@ -46,6 +46,18 @@ renta sigue exigiendo el grupo de rentas, porque cambia el contrato.
 
 Código fuente. fleet_rental y los módulos beflow_fleet_rental_* son AGPL-3: el
 menú de rentas enlaza al repositorio público con el código que corre (§13).
+
+Rentas sin contabilidad completa. El grupo de usuario de rentas implica
+Facturación (facturar y cobrar), no la contabilidad completa que añadía
+fleet_rental.
+
+Facturas de renta solo desde la renta. Ligar una factura a un contrato
+(`fleet_rent_id`, `is_first_invoice`) solo lo hace la facturación de rentas;
+a mano o por RPC daría días o cargos por cobrados sin cobrarlos. Las copias y
+las notas de crédito no heredan esos campos.
+
+Devolver sin ser manager. Al verificar la devolución se libera la reserva del
+contrato aunque el usuario de rentas no pueda borrar reservas.
 """,
     "author": "justbeflow.com",
     "website": "https://justbeflow.com",
@@ -54,6 +66,7 @@ menú de rentas enlaza al repositorio público con el código que corre (§13).
     "data": [
         "security/fleet_rental_acl_overrides.xml",
         "security/ir.model.access.csv",
+        "security/rental_groups.xml",
         "views/source_code_menu.xml",
     ],
     "installable": True,

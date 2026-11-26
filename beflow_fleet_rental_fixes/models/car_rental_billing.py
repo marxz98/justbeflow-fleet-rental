@@ -7,6 +7,8 @@ from odoo import Command, api, fields, models
 from odoo.exceptions import UserError
 from odoo.tools import format_date
 
+from .account_move import rental_billing
+
 _logger = logging.getLogger(__name__)
 
 BILLING_STEP = {
@@ -66,7 +68,8 @@ class CarRentalContract(models.Model):
         }
 
     def _create_rental_invoice(self, line_vals, **extra):
-        return self.env["account.move"].create(self._prepare_rental_invoice_vals(line_vals, **extra))
+        with rental_billing():
+            return self.env["account.move"].create(self._prepare_rental_invoice_vals(line_vals, **extra))
 
     def _prepare_first_invoice_line_vals(self):
         return [{
@@ -101,7 +104,8 @@ class CarRentalContract(models.Model):
         self._check_action_allowed(lambda contract: contract.state == "checking")
         for contract in self:
             contract.write({"state": "invoice", "actual_return_date": fields.Date.context_today(contract)})
-            contract.reserved_fleet_id.unlink()
+            # La reserva es del contrato y se libera al devolver: el usuario de rentas no borra reservas.
+            contract.reserved_fleet_id.sudo().unlink()
             contract.vehicle_id.rental_check_availability = True
             damage_lines = contract._prepare_damage_line_vals()
             if damage_lines:

@@ -6,3 +6,4 @@ from . import test_day_billing
 from . import test_engine_hours
 from . import test_equipment
 from . import test_extension_billing
+from . import test_coverage_guard

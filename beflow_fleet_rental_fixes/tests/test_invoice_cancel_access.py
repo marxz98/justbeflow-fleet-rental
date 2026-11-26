@@ -4,6 +4,7 @@ from odoo.exceptions import AccessError
 from odoo.service.model import get_public_method
 from odoo.tests import new_test_user, tagged
 
+from ..models.account_move import rental_billing
 from .common import RentalBillingCase
 
 
@@ -42,7 +43,8 @@ class TestInvoiceCancelAccess(RentalBillingCase):
     def test_cancelling_a_rental_invoice_still_needs_the_rental_group(self):
         contract = self.running_contract(0, 10)
         invoice = self._posted_invoice()
-        invoice.fleet_rent_id = contract
+        with rental_billing():
+            invoice.fleet_rent_id = contract
         with self.assertRaises(AccessError) as denied:
             invoice.with_user(self.billing_user).button_cancel()
         self.assertIn("car.rental.contract", str(denied.exception))

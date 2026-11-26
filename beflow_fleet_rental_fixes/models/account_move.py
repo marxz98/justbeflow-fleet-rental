@@ -1,7 +1,36 @@
 # -*- coding: utf-8 -*-
-from odoo import fields, models
+import contextvars
+from contextlib import contextmanager
+
+from odoo import api, fields, models
+from odoo.exceptions import UserError
 
 RESTORED_CONTRACT_FIELDS = ("state", "first_invoice_created")
+RENTAL_LINK_FIELDS = ("fleet_rent_id", "is_first_invoice")
+
+# Solo la facturación de rentas liga facturas a contratos y marca días cubiertos (5.5, M1).
+# No viaja en el contexto, que lo decide el cliente en cada llamada RPC; una ContextVar no.
+_RENTAL_BILLING = contextvars.ContextVar("beflow_rental_billing", default=False)
+
+
+@contextmanager
+def rental_billing():
+    token = _RENTAL_BILLING.set(True)
+    try:
+        yield
+    finally:
+        _RENTAL_BILLING.reset(token)
+
+
+def check_rental_billing(env, field_names):
+    """Ligar o desligar a mano facturas y contratos ocultaría cobros o deudas del contrato."""
+    if field_names and not _RENTAL_BILLING.get():
+        raise UserError(env._("Only rental billing can set these invoice fields: %s.", ", ".join(sorted(field_names))))
+
+
+def fields_set(records, field_names):
+    """Al crear se mira el registro, no los valores: los default_* del contexto RPC llegan después."""
+    return {name for name in field_names for record in records if record[name]}
 
 
 class AccountMove(models.Model):
@@ -16,9 +45,21 @@ class AccountMove(models.Model):
     """
     _inherit = "account.move"
 
+    fleet_rent_id = fields.Many2one(copy=False)
+    is_first_invoice = fields.Boolean(copy=False)
     is_rental_damage_invoice = fields.Boolean(
         string="Rental Damage Invoice", readonly=True, copy=False,
         help="Created when checking in a rented vehicle, for missing accessories and damage.")
+
+    @api.model_create_multi
+    def create(self, vals_list):
+        moves = super().create(vals_list)
+        check_rental_billing(self.env, fields_set(moves, RENTAL_LINK_FIELDS))
+        return moves
+
+    def write(self, vals):
+        check_rental_billing(self.env, set(RENTAL_LINK_FIELDS) & vals.keys())
+        return super().write(vals)
 
     def button_cancel(self):
         rental_moves = self.filtered("fleet_rent_id")
